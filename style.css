@@ -1,0 +1,264 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: #ff6b82;
+  --primary-light: #fff9fa;
+
+  --secondary-color: #c8c8c8;
+  --black: #000;
+  --white: #fff;
+  --mb: 10px;
+  --pd: 16px;
+  --title-font: 20px;
+  --content-font: 14px;
+  --mid-font: 16px;
+  --small-font: 12px;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  height: 100vh;
+  margin: 10px auto;
+}
+.container {
+  padding: 10px;
+  max-width: 600px;
+  width: 100%;
+  padding: 10px;
+  width: 100%;
+  margin: 0 20px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  font-size: var(--title-font);
+  margin-bottom: var(--mb);
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.heading::before,
+.heading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--secondary-color);
+}
+.col {
+  width: 100%;
+  border: 2px solid var(--secondary-color);
+  padding: var(--pd);
+  margin-bottom: var(--mb);
+}
+.unit,
+.radio {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+.radio label {
+  font-size: var(--content-font);
+  font-weight: 700;
+  margin-right: var(--mb);
+}
+.radio input {
+  margin-right: 10px;
+}
+.radio span {
+  display: inline-block;
+  height: 16px;
+  font-size: var(--small-font);
+  font-weight: 500;
+  padding: 1px 4px;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.standard {
+  font-size: var(--small-font);
+  font-weight: 500;
+  margin-left: 30px;
+}
+.price {
+  font-size: var(--content-font);
+  font-weight: 500;
+}
+.price .strike {
+  text-decoration: line-through;
+  color: var(--secondary-color);
+  font-size: 10px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--mb);
+}
+.flex-between p {
+  font-size: var(--mid-font);
+  font-weight: 500;
+}
+button {
+  font-size: var(--mid-font);
+  padding: 10px 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  text-align: center;
+  margin-bottom: var(--mb);
+  cursor: pointer;
+}
+button:hover {
+  background-color: #ef4d65;
+}
+.italic {
+  font-size: var(--small-font);
+  font-style: italic;
+  font-weight: 400;
+  color: #545454;
+  text-align: end;
+}
+
+.title-property {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+.size-a {
+  padding-left: 26px;
+}
+.title-property p {
+  width: 100%;
+  text-align: start;
+}
+.properties {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  width: 100%;
+  font-size: 10px;
+  cursor: pointer;
+}
+select option {
+  border-radius: 2px;
+}
+.total {
+  color: var(--black);
+}
+.free {
+  color: var(--primary-color);
+}
+.unit.active {
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-light);
+}
+
+.col {
+  width: 100%;
+  border: 1px solid var(--secondary-color);
+  padding: var(--pd);
+  margin-bottom: var(--mb);
+  transition: border 0.3s, background-color 0.3s;
+}
+
+.col.active {
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-light);
+}
+
+.property-box {
+  max-width: 300px;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}
+.col.active .property-box {
+  opacity: 1;
+  margin: 20px 0 10px 30px;
+}
+.properties p {
+  font-size: 10px;
+}
+
+.radio input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.radio label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 50%;
+  background: white;
+  transition: 0.3s ease;
+}
+
+.radio input:checked + label::before {
+  background: var(--white);
+  border-color: var(--primary-color);
+}
+
+.radio input:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--primary-color);
+  border-radius: 50%;
+}
+
